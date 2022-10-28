@@ -1,0 +1,48 @@
+#camera{
+    display:inline-block; 
+    padding-left:5%;
+}
+
+#preview{
+    width:100%;
+     height:85vh;
+      z-index:30;
+    margin-top: 1%;
+    display: none;
+     padding-left:5%;
+}
+
+#top_bar{
+    font-size:large;
+     height:2%;
+      background:black;
+       color:white;
+        padding:1%; 
+    margin:0 auto;
+}
+
+#registeration_left_pane{
+    float: left;
+    width:40%;
+}
+
+#registeration_right_pane{
+    float: right;
+    width:60%;
+    
+}
+
+#right_pane_container{
+    margin:17%;
+}
+
+input{
+    width: 80%;
+    height:45px;
+    padding:8px;
+    margin-top:10px;
+    border:none;
+    border:1px solid silver;
+    border-radius: 4px;
+
+}

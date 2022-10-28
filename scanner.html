@@ -1,0 +1,62 @@
+<html>
+    <head><title> Scanner</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <centre>
+        <div style="width: 110%;" >
+            <div id="top_bar"> <centre>My scanner</centre></div>
+           <div id="camera"></div>
+           <div  id="preview"></div>
+            <div style="position:fixed; bottom:0px; width:100%; border:1px solid silver; padding:1%;">
+<centre>
+                <table style="width: 100%; margin-left: 20%;">
+                <tr>
+                    <td> <button onclick="window.location.href='form.html'" style="cursor: pointer;"><img src="form.jpg" style="width:40px"/></button></td>
+                    <td><button style="cursor: pointer;" onclick="scan()"><img src="camera_icon.jpg" style="width:40px"/></button></td>
+                    <td> <button style="cursor: pointer;"><img src="contact.jpg" style="width:40px"/></button></td>
+                </tr>
+            </table>
+        </centre>
+        </div>
+        </div>
+    </centre>
+    </body>
+    <script type="text/javascript" src="webcamjs/webcam.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <script>
+        
+ Webcam.set({
+   width: 1200,
+   height: 700,
+   image_format: 'jpeg',
+   jpeg_quality: 190
+});
+Webcam.attach( '#camera' );
+
+var img_uri ="";
+function scan(){
+    Webcam.snap( function(data_uri) {
+    // display results in page
+        img_uri = data_uri;
+    document.getElementById('preview').innerHTML = 
+    "<div ><button onclick='upload()' style='background:purple; color:white; padding:1%; border:none; cursor:pointer;'>  Upload </button> <button style='background:tomato; color:white; padding:1%; border:none; cursor:pointer;' onclick='switchToScanMode()'> Rescan </button> <button style='background:blue; color:white; padding:1%; border:none; cursor:pointer;'> <a style='color:white;' href='"+data_uri+"' download>Save</a></button> </div>"+'<img src="'+data_uri+'"/>';
+     switchToPreviewMode();
+} );
+}
+
+function switchToPreviewMode(){
+    document.getElementById("camera").style.display="none";
+     document.getElementById("preview").style.display="block";
+}
+function switchToScanMode(){
+    document.getElementById("camera").style.display="block";
+     document.getElementById("preview").style.display="none";
+}
+
+function upload(){
+    const formData = new FormData();
+    formData.append("image",img_uri);
+}
+    </script>
+</html>

@@ -1,0 +1,41 @@
+<html>
+    <head><title> Scanner</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <centre>
+        <div style="width: 110%;" >
+            <div id="top_bar"> <centre>My scanner</centre></div>
+            <div id="registeration_left_pane">
+                <img src="assistant.jpg" style="width:90%"/>
+            </div>
+            <div id="registeration_right_pane">
+                <div id="right_pane_container">
+                    <div style="font-size:32px; font-family:helvetica;">Help us with your information</div>
+
+                    <input type="text" id="name" placeholder="Full name"/><p>
+                    <input type="email" id="email" placeholder="Email"/><p>
+                        <button onclick="go()" style="padding:3%; border:none; background:skyblue; color:white; cursor:pointer"> GO </button>
+                </div>
+
+              
+
+            </div>
+          
+    </body>
+  <script>
+
+     function go(){
+        let name_input = document.getElementById("name").value;
+        let email_input = document.getElementById("email").value;
+        if(name_input.length > 3 && email_input.length >5){
+            document.cookie ="username=name_input";
+            document.cookie = "email=email_input";
+            window.location.href="scanner.html?name_input"
+        }else{
+            alert("Please fill in details");
+        }
+     }
+  </script>
+
+</html>
